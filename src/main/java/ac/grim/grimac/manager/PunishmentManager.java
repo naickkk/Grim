@@ -150,7 +150,7 @@ public class PunishmentManager implements ConfigReloadable {
                             } else if (command.command.equals("[proxy]")) {
                                 ProxyAlertMessenger.sendPluginMessage(replaceAlertPlaceholders(command.getCommand(), vl, group, check, proxyAlertString, verbose));
                             } else {
-                                if (command.command.equals("[alert]")) {
+                                if (!GrimAPI.INSTANCE.getAlertManager().getEnabledVerbose().isEmpty() && command.command.equals("[alert]")) {
                                     sentDebug = true;
                                     if (testMode) { // secret test mode
                                         player.user.sendMessage(MessageUtil.miniMessage(cmd));
